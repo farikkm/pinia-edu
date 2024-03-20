@@ -1,4 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true }
+  devtools: { enabled: false },
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    ['@nuxtjs/google-fonts', {
+      'families': {
+        Roboto: [300, 400, 700]
+      }
+    }]
+  ],
+  pinia: {
+    storesDirs: ['./store/**']
+  }
 })
