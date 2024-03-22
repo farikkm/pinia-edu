@@ -5,4 +5,20 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+
+  overflow-y: scroll; /* Ползунок будут всегда видимым */
+}
+
+body::-webkit-scrollbar {
+  width: 10px;               /* ширина всей полосы прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+  background: #CBD5E1;        /* цвет зоны отслеживания */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #2DD4BF;    /* цвет бегунка */
+  border-radius: 20px;       /* округлось бегунка */
+  border: 3px solid #CBD5E1;  /* отступ вокруг бегунка */
 }

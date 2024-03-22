@@ -8,7 +8,11 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     ['@nuxtjs/google-fonts', {
       'families': {
-        Roboto: [300, 400, 700]
+        Roboto: {
+          wght: [300, 400, 700],
+          ital: [300, 400]
+        },
+        "Comic Neue": [400, 700]
       }
     }]
   ],
