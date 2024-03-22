@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
     '@nuxt/image',
+    '@nuxt/ui',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     ['@nuxtjs/google-fonts', {
