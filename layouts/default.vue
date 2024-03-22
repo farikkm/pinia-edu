@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
-    <LayoutHeader />
+  <div class="min-h-screen bg-slate-700">
+    <div class="max-w-6xl mx-auto px-4 bg-slate-700 text-white">
+      <LayoutHeader />
 
-    <div>
-      <slot></slot>
+      <main>
+        <slot></slot>
+      </main>
     </div>
   </div>
 </template>
@@ -12,6 +14,4 @@
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,5 +1,18 @@
+interface IMovies {
+  id: number,
+  original_title: string,
+  overview: string, 
+  poster_path: string,
+  release_date: string,
+  isWatched: boolean
+}
+
+type typeMoviesReturn = {
+  movies: IMovies[]
+}
+
 export const useMovieStore = defineStore('movieStore', {
-  state: () => ({
+  state: (): typeMoviesReturn => ({
     movies: [
       {
         id: 1,
