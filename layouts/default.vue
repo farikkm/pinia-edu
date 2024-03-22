@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-slate-700">
+  <div class="min-h-screen pb-5 bg-slate-700">
     <div class="max-w-6xl mx-auto px-4 bg-slate-700 text-white">
       <LayoutHeader />
 

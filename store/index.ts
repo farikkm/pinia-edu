@@ -7,12 +7,13 @@ interface IMovies {
   isWatched: boolean
 }
 
-type typeMoviesReturn = {
+type typeMovies = {
   movies: IMovies[]
+  activeTabs: number
 }
 
 export const useMovieStore = defineStore('movieStore', {
-  state: (): typeMoviesReturn => ({
+  state: (): typeMovies => ({
     movies: [
       {
         id: 1,
@@ -21,7 +22,7 @@ export const useMovieStore = defineStore('movieStore', {
           "After being bitten by a genetically altered spider at Oscorp, nerdy but endearing high school student Peter Parker is endowed with amazing powers to become the superhero known as Spider-Man.",
         poster_path: "/gh4cZbhZxyTbgxQPxD0dOudNPTn.jpg",
         release_date: "2002-05-01",
-        isWatched: false,
+        isWatched: true,
       },
       {
         id: 2,
@@ -32,6 +33,12 @@ export const useMovieStore = defineStore('movieStore', {
         release_date: "2022-03-01",
         isWatched: false,
       },
-    ]
-  })
+    ],
+    activeTabs: 1
+  }),
+  getters: {
+    watchedMovies: (state: typeMovies): IMovies[] => {
+      return state.movies.filter(item => item.isWatched)
+    }
+  }
 })
