@@ -2,7 +2,6 @@
 useHead({
   title: 'Main Page | farikk\'s Cinema'
 })
-
 const movieStore = useMovieStore()
 </script>
 
