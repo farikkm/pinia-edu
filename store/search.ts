@@ -1,16 +1,9 @@
+import type {IMovie} from '@/interfaces'
+
 import { useMovieStore } from "."
 
 const API_KEY = `${import.meta.env.VITE_API_KEY}`
 const URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`
-
-interface IMovie {
-  id: number,
-  original_title: string,
-  overview: string, 
-  poster_path: string,
-  release_date: string,
-  isWatched: boolean
-}
 
 interface ISearchStore {
   loader: boolean

@@ -1,11 +1,4 @@
-interface IMovie {
-  id: number,
-  original_title: string,
-  overview: string, 
-  poster_path: string,
-  release_date: string,
-  isWatched: boolean
-}
+import type {IMovie} from '@/interfaces'
 
 type typeMovies = {
   movies: IMovie[]

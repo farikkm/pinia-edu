@@ -1,27 +1,6 @@
 <script setup lang="ts">
-// import { useSearch } from "@/store/search";
 
-// const props = defineProps({
-//   movie: {
-//     type: Object,
-//     required: true,
-//     default: () => { }
-//   },
-//   isSearch: {
-//     type: Boolean,
-//     required: false,
-//     default: false
-//   }
-// })
-
-interface IMovie {
-  id: number,
-  original_title: string,
-  overview: string, 
-  poster_path: string,
-  release_date: string,
-  isWatched: boolean
-}
+import type {IMovie} from '@/interfaces'
 
 const props = defineProps<{
   movie: IMovie
