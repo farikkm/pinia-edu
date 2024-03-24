@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
 useHead({
   title: 'Main Page | farikk\'s Cinema'
 })
@@ -14,9 +13,11 @@ setTimeout(() => {
     const movieInLocalStorage = localStorage.getItem('movies')
     if (movieInLocalStorage && movieStore.movies.length == 0) {
       movieStore.movies = JSON.parse(movieInLocalStorage)
+      movieStore.loader = false
+    } else {
+      movieStore.loader = false
     }
   }
-  movieStore.loader = false
 }, 700)
 </script>
 
