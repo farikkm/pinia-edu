@@ -1,3 +1,9 @@
+# Run project
+
+You can run the project by calling this command in your terminal: `node .output/server/index.mjs`.
+
+Server will be opened on `http://localhost:3000`
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
