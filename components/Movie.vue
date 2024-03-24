@@ -1,24 +1,37 @@
 <script setup lang="ts">
-
 import type {IMovie} from '@/interfaces'
+import { watch } from "vue";
 
+// Props
 const props = defineProps<{
   movie: IMovie
   isSearch?: boolean
 }>()
 
-console.log(props.movie);
+// Changed Props
+const rda = props.movie.release_date.split('-')
+const release_date = `${rda[2]}.${rda[1]}.${rda[0]}г.`
 
 
+// Stores
 const movieStore = useMovieStore()
 const searchStore = useSearch()
 
+// State
+const { movies } = storeToRefs(movieStore)
+
+// Actions from stores
 const watched = (id: number): void => {
   movieStore.toggleWatched(id)
 }
 const deleteMovie = (id: number): void => {
   movieStore.deleteMovie(id)
 }
+
+// Watcher
+watch(movies, (state) => {
+  localStorage.setItem('movies', JSON.stringify(state))
+}, {deep: true})
 </script>
 
 <template>
@@ -31,9 +44,9 @@ const deleteMovie = (id: number): void => {
       <div class="text-black">
         <h3 class="movie__name text-2xl">
           {{ movie.original_title }}
-          <span class="text-sm ps-3">{{ movie.release_date }}</span>
+          <span class="text-sm ps-3">{{ release_date }}</span>
         </h3>
-        <p class="movie__overwiew mt-2 opacity-80 text-sm">{{ movie.overview.length > 200 ? `${movie.overview.slice(0,
+        <p class="movie__overwiew mt-2 opacity-80 text-sm">{{ movie.overview?.length > 200 ? `${movie.overview.slice(0,
         200)}..` : movie.overview }}</p>
         <div v-if="!isSearch" class="movie__buttons mt-3">
           <div>

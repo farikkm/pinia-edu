@@ -2,22 +2,16 @@ import type {IMovie} from '@/interfaces'
 
 type typeMovies = {
   movies: IMovie[]
-  activeTabs: number
+  activeTabs: number,
+  loader: boolean
 }
 
 export const useMovieStore = defineStore('movieStore', {
   state: (): typeMovies => ({
     movies: [],
-    activeTabs: 1
+    activeTabs: 1, 
+    loader: true
   }),
-  getters: {
-    watchedMovies: (state: typeMovies): IMovie[] => {
-      return state.movies.filter(item => item.isWatched)
-    },
-    totalMoviesCount: (state: typeMovies): number => {
-      return state.movies.length
-    }
-  },
   actions: {
     setActiveTabs(id: number): void {
       this.activeTabs = id
@@ -29,5 +23,13 @@ export const useMovieStore = defineStore('movieStore', {
     deleteMovie(id: number): void {
       this.movies = this.movies.filter(item => item.id !== id)
     }
-  }
+  },
+  getters: {
+    watchedMovies: (state: typeMovies): IMovie[] => {
+      return state.movies.filter(item => item?.isWatched)
+    },
+    totalMoviesCount: (state: typeMovies): number => {
+      return state.movies.length
+    }
+  },
 })

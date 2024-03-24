@@ -2,6 +2,7 @@ import type {IMovie} from '@/interfaces'
 
 import { useMovieStore } from "."
 
+// Database and API key are taken from 'https://api.themoviedb.org'
 const API_KEY = `${import.meta.env.VITE_API_KEY}`
 const URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`
 

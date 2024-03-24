@@ -2,16 +2,17 @@
 useHead({
   title: 'Search | farikk\'s Cinema'
 })
-
-import { useSearch } from "@/store/search";
-
+// Input value
+const movieInput = ref('')
+ 
+// Stores
 const searchStore = useSearch()
+
+// Actions from stores
 const getMovies = (input: string) => {
   searchStore.getMovies(input)
   movieInput.value = ''
 }
-
-const movieInput = ref('')
 </script>
 
 <template>
