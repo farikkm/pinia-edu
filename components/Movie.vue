@@ -24,8 +24,15 @@ const { movies } = storeToRefs(movieStore)
 const watched = (id: number): void => {
   movieStore.toggleWatched(id)
 }
+
 const deleteMovie = (id: number): void => {
   movieStore.deleteMovie(id)
+  const movies = localStorage.getItem('movies')
+  if (movies) {
+    const moviesArr: IMovie[] = JSON.parse(movies)
+    const filteredMovies = moviesArr.filter(item => item.id !== id)
+    localStorage.setItem('movies', JSON.stringify(filteredMovies))
+  }
 }
 
 // Watcher
